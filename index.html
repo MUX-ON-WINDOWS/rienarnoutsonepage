@@ -14,14 +14,126 @@
 
 <body class="w-full h-full" style="margin-top: 0px;">
     <nav style="z-index: 99;" class="sticky">
-        <ul class="nav-wrapper">
-            <li class="nav-logo"><a href="#home"><img class="logo" src="logo/LogoRienArnouts.png"></a></li>
-            <li class="nav-item"><a class="nav-link rounded p-2" href="#about">Over mij</a></li>
-            <li class="nav-item"><a class="nav-link rounded p-2" href="#portfolio">Portfolio</a></li>
-            <li class="nav-item"><a class="nav-link rounded p-2" href="#agenda">Agenda</a></li>
-            <li class="nav-item"><a class="nav-link rounded p-2" href="#contact">Contact</a></li>
-        </ul>
+
+            <div id="homeLogo" class="hide">
+                <ul class="nav-wrapper">
+                    <li class="nav-logo"><a href="#home"><img class="logo" src="logo/LogoRienArnouts.png"></a></li>
+                    <li class="nav-item"><a class="nav-link rounded p-2" href="#about">Over mij</a></li>
+                    <li class="nav-item"><a class="nav-link rounded p-2" href="#portfolio">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link rounded p-2" href="#agenda">Agenda</a></li>
+                    <li class="nav-item"><a class="nav-link rounded p-2" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div id="hamburgerMenu" class="hide">
+                <div id="buttons" class="open">
+                    <div id="openSign" class="my-4 mx-4">
+                        <li class="nav-logo">
+                            <button onclick="openHamburger()" >
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                                </svg>
+                            </button>
+                        </li>
+                    </div>
+                </div>
+                <div id="hamburgerSwitch" class="close">
+                    <ul class="nav-wrapper">
+                    <div id="closeOnClick">
+                        <li class="nav-item"><a class="nav-response-link rounded p-2" href="#home">Home</a></li>
+                        <li class="nav-item"><a class="nav-response-link rounded p-2" href="#about">Over mij</a></li>
+                        <li class="nav-item"><a class="nav-response-link rounded p-2" href="#portfolio">Portfolio</a></li>
+                        <li class="nav-item"><a class="nav-response-link rounded p-2" href="#agenda">Agenda</a></li>
+                        <li class="nav-item"><a class="nav-response-link rounded p-2" href="#contact">Contact</a></li>
+                    </div>
+                </ul>
+                </div>
+            </div>
     </nav>
+
+    <script>
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+        const homeLogo = document.getElementById('homeLogo');
+        const hamburgerSwitch = document.getElementById('hamburgerSwitch');
+
+        const closeSign = document.getAnimations('closeSign');
+        const openSign = document.getAnimations('openSign');
+
+        const closeOnClick = document.getElementById('closeOnClick');
+
+
+        hamburgerSwitch.className = 'close'
+
+        function openHamburger() {
+            if (hamburgerSwitch.className = 'close') {
+                hamburgerSwitch.className = 'open'
+            }
+
+            if (hamburgerSwitch.className = 'open') {
+                document.getElementById('openSign').innerHTML = `
+                <li class="nav-logo">
+                    <button onclick="closeHamburger()" >
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </li>`
+            }
+        }
+        function closeHamburger() {
+            if (hamburgerSwitch.className = 'open') {
+                hamburgerSwitch.className = 'close'
+            }
+            if (hamburgerSwitch.className = 'close') {
+                document.getElementById('openSign').innerHTML = `
+                <li class="nav-logo">
+                    <button onclick="openHamburger()" >
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </li>`
+            }
+        }
+
+        // onclick mobile navbar will close.
+        closeOnClick.addEventListener("click", function(event) {
+            if (hamburgerSwitch.className = 'open') {
+                hamburgerSwitch.className = 'close'
+
+                document.getElementById('openSign').innerHTML = `
+                <li class="nav-logo">
+                    <button onclick="openHamburger()" >
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </li>`
+
+                closeSign.className = ''
+                openSign.className = 'hide'
+            }
+        })
+
+        // Check width size if mobile or windows is.
+        homeLogo.className = '';
+
+        window.addEventListener("resize", function(event) {
+            viewportwidth = document.body.clientWidth
+
+            if (viewportwidth <= 800) {
+                console.log("Mobile View")
+                hamburgerMenu.className = '';
+                homeLogo.className = 'hide';
+
+            } else if (viewportwidth >= 800) {
+                console.log("Window View")
+                hamburgerMenu.className = 'hide';
+                homeLogo.className = '';
+            }
+        })
+    </script>
+
+
     <!-- Start header -->
     <section id="home">
         <div class="relative" style="height: 1000px; background-color: #DDC6B6;">
@@ -249,7 +361,7 @@
                 <div class="mx-auto my-auto h-full max-w-7xl px-4 sm:px-6 lg:px-8">
                     <ul role="list" class="space-y-3">
                         <h1 class="text-2xl font-bold leading-8 tracking-tight text-gray-900 sm:text-2xl">14 september en 16 september 2019</h1>
-                        <li class="overflow-hidden bg-white px-4 py-4 border-2 border-gray-800 sm:rounded-md sm:px-6">
+                        <li class="overflow-hidden bg-white px-4 py-12 sm:rounded-md sm:px-6" style="background-color: #DDC6B6;">
                             <div class="flex">
                                 <div class="w-1/3">09:00 AM - 04:00 PM</div>
                                 <div class="w-1/2">
@@ -259,7 +371,7 @@
                             </div>
                         </li>
                         <h1 class="text-2xl font-bold leading-8 tracking-tight text-gray-900 sm:text-2xl">16 september en 17 september 2019</h1>
-                        <li class="overflow-hidden bg-white px-4 py-4 border-2 border-gray-800 sm:rounded-md sm:px-6">
+                        <li class="overflow-hidden bg-white px-4 py-12 sm:rounded-md sm:px-6" style="background-color: #DDC6B6;">
                             <div class="flex">
                                 <div class="w-1/3">09:00 AM - 04:00 PM</div>
                                 <div class="w-1/2">
@@ -285,22 +397,22 @@
                     <form  class="grid grid-cols-1 gap-y-6">
                         <div>
                             <label for="full-name" class="sr-only">Volledige naam:</label>
-                            <input type="text" name="full-name" id="full-name" autocomplete="name" class="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="Full name">
+                            <input type="text" name="full-name" id="full-name" autocomplete="name" class="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="Naam">
                         </div>
                         <div>
                             <label for="email" class="sr-only">Email:</label>
                             <input id="email" name="email" type="email" autocomplete="email" class="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="Email">
                         </div>
                         <div>
-                            <label for="phone" class="sr-only">Telefoonnummer: </label>
-                            <input type="text" name="phone" id="phone" autocomplete="tel" class="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="Phone">
+                            <label for="subject" class="sr-only">Onderwerp: </label>
+                            <input type="text" name="subject" id="subject" autocomplete="tel" class="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="Onderwerp">
                         </div>
                         <div>
                             <label for="message" class="sr-only">Bericht:</label>
-                            <textarea id="message" name="message" rows="4" class="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="Message"></textarea>
+                            <textarea id="message" name="message" rows="4" class="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="Bericht"></textarea>
                         </div>
                         <div>
-                            <button class="buttonSubmit rounded p-2" type="submit">Submit</button>
+                            <button onclick="sendEmail()" class="buttonSubmit rounded p-2" type="button">Submit</button>
                         </div>
                     </form>
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2475.300861409357!2d4.876090715970081!3d51.65432770777031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c69968eef9c87d%3A0xce85afb569654a7e!2sVenkelhof%206%2C%204907%20HK%20Oosterhout!5e0!3m2!1snl!2snl!4v1664954550942!5m2!1snl!2snl"
@@ -311,6 +423,28 @@
             </div>
         </div>
     </section>
+
+    <!-- <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    <script>
+        function sendEmail() {
+            const EmailSender = document.getElementById('email');
+            const MessageSender = document.getElementById('message');
+            const SubjectSender = document.getElementById('subject');
+            console.log(EmailSender + MessageSender + SubjectSender);
+
+            Email.send({
+            SecureToken : "<your generated token>",
+            To : 'maxnouts@gmail.com',
+            From : EmailSender,
+            Subject : SubjectSender,
+            Body : "<html><h2>Header</h2><strong>Bold text</strong><br></br><em>Italic</em></html>"
+            }).then(
+                // message => alert("mail sent successfully")
+                message =>  console.log(EmailSender + MessageSender + SubjectSender)
+            );
+        }
+    </script> -->
     <!-- Einde Contact -->
 </body>
 <script>
