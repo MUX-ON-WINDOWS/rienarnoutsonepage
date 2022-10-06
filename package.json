@@ -1,0 +1,18 @@
+{
+  "name": "rienarnoutsonepage",
+  "version": "1.0.0",
+  "description": "Rien Arnouts",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "dev"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mix-tailwindcss": "^1.3.0"
+  },
+  "dependencies": {
+    "animejs": "^3.2.1",
+    "keen-slider": "^6.6.5"
+  }
+}

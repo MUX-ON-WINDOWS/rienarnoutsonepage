@@ -1,0 +1,149 @@
+/* Einde Global */
+* {
+    margin: 0px;
+    padding: 0px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
+body {
+    margin: -8px;
+    background-color: #fff;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+/* Einde Global */
+
+nav {
+    background-color: #DDC6B6;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.nav-wrapper {
+    margin: auto;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+li{
+    list-style: none;
+}
+.nav-item{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.nav-link{
+    font-size: 20px;
+}
+.nav-link:hover {
+    background-color: #262223;
+    color: #DDC6B6;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+
+.nav-logo{
+    left: 2vw;
+    position: absolute;
+}
+
+.logo{
+    width: 70px;
+}
+/* Begin banner */
+
+.begin {
+    position: relative;
+    height: 1080px;
+}
+
+.screen {
+    height: 110vh;
+}
+/* Einde banner */
+.grayoutimg {
+    filter: grayscale(1);
+}
+.grayoutimg:hover {
+    transition: .3s;
+    filter: grayscale(0);
+    transform: scale(1.1);
+}
+.grayoutimg:hover > .gallery__caption {
+    opacity: 1;
+}
+.grayoutimg:hover > .gallery__cm {
+    opacity: 1;
+}
+.gallery__caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 25px 15px 15px;
+    width: 100%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    color: white;
+    opacity: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, .5) 0%, rgba(255, 255 ,255 , 0) 100%);
+    transition: .3s;
+}
+.gallery__cm {
+    position: absolute;
+    bottom: 0;
+    left: 70%;
+    padding: 25px 15px 15px;
+    width: 100%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    color: white;
+    opacity: 0;
+    transition: .3s;
+}
+/* image layout end */
+/* Content button switcher start */
+
+.buttonSwitch {
+    color: #262223;
+    padding: 8px;
+}
+.active, .buttonSwitch:hover {
+    color: #262223;
+    border-bottom: #262223 4px solid;
+  }
+
+.buttonSwitch:hover {
+    color: #262223;
+    border-bottom: #262223 4px solid;
+    transition: all 0.5s;
+}
+
+#switchContent .hide {
+    display: none;
+}
+.buttonSwitch {
+    color: #262223;
+    border-radius: 5px;
+    padding: 15px;
+}
+.buttonSubmit {
+    border-bottom: 2px solid #262223;
+
+}
+.buttonSubmit:hover
+{
+    background-color: #262223;
+    color: #DDC6B6;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+
+@media
+(prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+}
+}
