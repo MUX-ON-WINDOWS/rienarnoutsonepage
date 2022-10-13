@@ -72,11 +72,23 @@
             // console.log("Mobile View")
             hamburgerMenu.className = '';
             homeLogo.className = 'hide';
-
         } else if (viewportwidth >= 800) {
             // console.log("Window View")
             hamburgerMenu.className = 'hide';
             homeLogo.className = '';
+        }
+    })
+
+    let changeLogoVis = document.getElementById('widthCheck')
+
+    window.addEventListener("resize", function(event) {
+        viewportwidth = document.body.clientWidth
+
+        if (viewportwidth <= 1200) {
+            changeLogoVis = document.getElementById('widthCheck').style.display = "none";
+
+        } else if (viewportwidth >= 1200) {
+            changeLogoVis = document.getElementById('widthCheck').style.display = "block";
         }
     })
 

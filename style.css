@@ -12,7 +12,9 @@ body {
 
 
 /* Einde Global */
-
+/* #widthCheck {
+    display: none;
+} */
 .hide {
     display: none;
     background-color: #DDC6B6;
