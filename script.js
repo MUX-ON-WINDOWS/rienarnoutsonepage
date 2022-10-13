@@ -69,12 +69,12 @@
         viewportwidth = document.body.clientWidth
 
         if (viewportwidth <= 800) {
-            console.log("Mobile View")
+            // console.log("Mobile View")
             hamburgerMenu.className = '';
             homeLogo.className = 'hide';
 
         } else if (viewportwidth >= 800) {
-            console.log("Window View")
+            // console.log("Window View")
             hamburgerMenu.className = 'hide';
             homeLogo.className = '';
         }
