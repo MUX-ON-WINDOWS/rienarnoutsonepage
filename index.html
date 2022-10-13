@@ -73,6 +73,9 @@
                     <span class="text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">Over mij</span>
                 </h1>
                 <div class="h-full grid grid-cols-1 gap-6 mx-20 sm:grid-cols-1 md::grid-cols-1 xl:grid-cols-2">
+                    <div class="flex justify-center xl:p-6 lg:p-0">
+                        <img class="rounded-xl w-full xl:h-full xl:w-full lg:w-2/3 md:1/2" src="img/aanhetwerk.webp">
+                    </div>
                     <div class="flex justify-center ">
                         <p class="mt-2">
                             In zijn studietijd was Arnouts al bezig met onderzoek van de bolvorm en de
@@ -101,9 +104,6 @@
                             Bastogne (B) en Oisterwijk.<br>
 
                         </p>
-                    </div>
-                    <div class="flex justify-center xl:p-6 lg:p-0">
-                        <img class="rounded-xl w-full xl:h-full xl:w-full lg:w-2/3 md:1/2" src="img/aanhetwerk.webp">
                     </div>
                 </div>
             </div>
@@ -305,10 +305,14 @@
     <section id="contact">
         <div class="h-full" style="background-color: #DDC6B6;">
             <div class="relative overflow-hidden py-16">
-                <h1 class="my-4 text-center mx-auto">
+                <h1 class="my-4 mb-14 text-center mx-auto">
                     <span class="text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">Contact</span>
                 </h1>
                 <div class="h-full grid grid-cols-1 gap-6 mx-20 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
+                    <iframe class="w-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2475.300861409357!2d4.876090715970081!3d51.65432770777031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c69968eef9c87d%3A0xce85afb569654a7e!2sVenkelhof%206%2C%204907%20HK%20Oosterhout!5e0!3m2!1snl!2snl!4v1664954550942!5m2!1snl!2snl"
+                        height="450" style="border:0;"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                     <form  class="grid grid-cols-1 gap-y-6">
                         <div>
                             <label for="full-name" class="sr-only">Volledige naam:</label>
@@ -327,13 +331,9 @@
                             <textarea id="message" name="message" rows="4" class="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="Bericht"></textarea>
                         </div>
                         <div>
-                            <button onclick="sendEmail()" class="buttonSubmit rounded p-2" type="button">Submit</button>
+                            <button onclick="sendEmail()" class="buttonSubmit rounded p-2" type="submit">Submit</button>
                         </div>
                     </form>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2475.300861409357!2d4.876090715970081!3d51.65432770777031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c69968eef9c87d%3A0xce85afb569654a7e!2sVenkelhof%206%2C%204907%20HK%20Oosterhout!5e0!3m2!1snl!2snl!4v1664954550942!5m2!1snl!2snl"
-                        width="600" height="450" style="border:0;"
-                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
                 </div>
             </div>
         </div>
