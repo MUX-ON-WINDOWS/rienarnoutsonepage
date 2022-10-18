@@ -79,6 +79,7 @@ li{
 .logo{
     width: 70px;
 }
+
 /* Begin banner */
 
 .begin {
@@ -89,7 +90,10 @@ li{
 .screen {
     height: 110vh;
 }
+
 /* Einde banner */
+/* Begin portfolio Window */
+
 .grayoutimg {
     filter: grayscale(1);
 }
@@ -129,7 +133,35 @@ li{
     opacity: 0;
     transition: .3s;
 }
-/* image layout end */
+
+/* End portfolio Window */
+/* Begin portfolio Mobile */
+
+.gallery_textName {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 25px 15px 15px;
+    width: 100%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    color: white;
+    background: linear-gradient(0deg, rgba(0, 0, 0, .5) 0%, rgba(255, 255 ,255 , 0) 100%);
+    transition: .3s;
+}
+.gallery_cmText {
+    position: absolute;
+    bottom: 0;
+    left: 70%;
+    padding: 25px 15px 15px;
+    width: 100%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    color: white;
+    transition: .3s;
+}
+
+/* End portfolio Mobile */
 /* Content button switcher start */
 
 .buttonSwitch {
