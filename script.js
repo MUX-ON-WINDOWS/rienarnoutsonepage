@@ -62,22 +62,6 @@
         }
     })
 
-    // Check width size if mobile or windows is.
-    homeLogo.className = '';
-
-    window.addEventListener('load', (event) => {
-        viewportwidth = document.body.clientWidth
-
-        if (viewportwidth <= 1200) {
-            changeLogoVis = document.getElementById('widthCheck').style.display = "none";
-
-        } else if (viewportwidth >= 1200) {
-            changeLogoVis = document.getElementById('widthCheck').style.display = "block";
-        }
-
-        console.log('page is fully loaded');
-      });
-
     window.addEventListener("resize", function(event) {
         viewportwidth = document.body.clientWidth
 
@@ -106,6 +90,26 @@
     })
 
     // Navbar end
+
+    // Check width size if mobile or windows is.
+    homeLogo.className = '';
+
+    window.addEventListener('load', (event) => {
+        viewportwidth = document.body.clientWidth
+
+        if (viewportwidth <= 1200) {
+            // changeLogoVis = document.getElementById('widthCheck').style.display = "none";
+            changeLogoVis = document.getElementById('widthCheck').style.display = "none";
+
+
+        } else if (viewportwidth >= 1200) {
+            changeLogoVis = document.getElementById('widthCheck').style.display = "block";
+        }
+
+        console.log('page is fully loaded');
+      });
+
+
     // Portfolio begin
 
     var buttonClass = document.getElementById("buttonClass")
