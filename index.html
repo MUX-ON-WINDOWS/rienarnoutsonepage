@@ -18,7 +18,10 @@
                 <ul class="nav-wrapper">
                     <li class="nav-logo"><a href="#home"><img class="logo" src="logo/LogoRienArnouts.png"></a></li>
                     <li class="nav-item"><a class="nav-link rounded p-2" href="#about">Over mij</a></li>
-                    <li class="nav-item"><a class="nav-link rounded p-2" href="#portfolio">Portfolio</a></li>
+
+                    <li id="switchPortfolioWindow1" class="nav-item"><a class="nav-link rounded p-2" href="#portfolioWindow">Portfolio</a></li>
+                    <li id="switchPortfolioMobile1" class="nav-item"><a class="nav-link rounded p-2" href="#portfolioMobile">Portfolio</a></li>
+
                     <li class="nav-item"><a class="nav-link rounded p-2" href="#agenda">Agenda</a></li>
                     <li class="nav-item"><a class="nav-link rounded p-2" href="#contact">Contact</a></li>
                 </ul>
@@ -27,7 +30,7 @@
                 <div id="buttons" class="open">
                     <div id="openSign" class="mx-4">
                         <li class="nav-logo">
-                            <button onclick="openHamburger()" >
+                            <button onclick="openHamburger()">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                                 </svg>
@@ -40,7 +43,10 @@
                     <div id="closeOnClick">
                         <li class="nav-item"><a class="nav-response-link rounded p-2" href="#home">Home</a></li>
                         <li class="nav-item"><a class="nav-response-link rounded p-2" href="#about">Over mij</a></li>
-                        <li class="nav-item"><a class="nav-response-link rounded p-2" href="#portfolio">Portfolio</a></li>
+
+                        <li id="switchPortfolioWindow2" class="nav-item"><a class="nav-link rounded p-2" href="#portfolioWindow">Portfolio</a></li>
+                        <li id="switchPortfolioMobile2" class="nav-item"><a class="nav-link rounded p-2" href="#portfolioMobile">Portfolio</a></li>
+
                         <li class="nav-item"><a class="nav-response-link rounded p-2" href="#agenda">Agenda</a></li>
                         <li class="nav-item"><a class="nav-response-link rounded p-2" href="#contact">Contact</a></li>
                     </div>
@@ -54,7 +60,7 @@
             <div class="lg:mx-auto lg:pr-0 xl:pr-36 lg:pl-0 xl:pl-14 lg:py-16 xl:py-24 absolute rounded-r-xl -mt-64" style="max-height: 1000px; top: 50%;">
                 <img class="relative lg:h-full w-full" src="logo/LogoRienArnouts.png" >
             </div>
-            <div style="display: none;" class="px-20 py-20 h-5/8 absolute rounded-l-xl right-0" style="top: 260px; width: 45%; background-color: #262223;">
+            <div id="widthCheck" class="px-20 py-20 h-5/8 absolute rounded-l-xl right-0" style="top: 260px; width: 45%; background-color: #262223;">
                 <p id="visText" class="text-white relative leading-tight" style="font-size: 7rem; color: #DDC6B6;">
                     Atelier <br>
                     Rien Arnouts
@@ -110,7 +116,9 @@
     </section>
     <!-- Einde over mij -->
     <!-- Begin portfolio -->
-    <section id="portfolio">
+
+    <!-- Window Portfolio -->
+    <section id="portfolioWindow">
         <div class="h-full" style="background-color: #DDC6B6;">
         <div class="mx-auto w-full px-4 pt-12 sm:px-6 sm:pt-16 lg:max-w-7xl lg:px-8">
             <h1 class="my-4 text-center ml-auto">
@@ -262,7 +270,166 @@
             </div>
         </div>
         </div>
+    </section>
 
+    <!-- Mobile Portfolio -->
+    <section id="portfolioMobile" >
+        <div class="h-full" style="background-color: #DDC6B6;">
+        <div class="mx-auto w-full px-4 pt-12 sm:px-6 sm:pt-16 lg:max-w-7xl lg:px-8">
+            <h1 class="my-4 text-center ml-auto">
+                <span class="text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">Portfolio</span>
+            </h1>
+        </div>
+        <div>
+            <!-- Brons Content Mobile -->
+            <div>
+                <h2 class="my-4 text-center ml-auto">
+                    <span class="font-bold leading-6 text-gray-900 sm:text-3xl">Brons</span>
+                </h2>
+                <div class="mx-auto w-full px-4 pt-2 pb-16 sm:px-6 sm:pt-8 sm:pb-24 lg:max-w-7xl lg:px-8">
+                    <div class="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+                        <a class="group">
+                        <div class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                            <img src="brons/cobra.jpg" class="h-full w-full object-cover object-center">
+                            <p class="gallery_textName">Cobra</p>
+                            <p class="gallery_cmText">33 cm</p>
+                        </div>
+                        </a>
+
+                        <a class="group">
+                        <div class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                            <img src="brons/jumeau.jpg" class="h-full w-full object-cover object-center">
+                            <p class="gallery_textName">Jumeau</p>
+                            <p class="gallery_cmText">60 cm</p>
+                        </div>
+                        </a>
+
+                        <a class="group">
+                        <div class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                            <img src="brons/marilyn.jpg" class="h-full w-full object-cover object-center">
+                            <p class="gallery_textName">Marilyn</p>
+                            <p class="gallery_cmText">52 cm</p>
+                        </div>
+                        </a>
+
+                        <a class="group">
+                        <div class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                            <img src="brons/symbiose.jpg" class="h-full w-full object-cover object-center">
+                            <p class="gallery_textName">Symbiose</p>
+                            <p class="gallery_cmText">65 cm</p>
+                        </div>
+                        </a>
+
+                        <a class="group">
+                        <div class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                            <img src="brons/uitdagend.jpg" class="h-full w-full object-cover object-center">
+                            <p class="gallery_textName">Uitdagend</p>
+                            <p class="gallery_cmText">35 cm</p>
+                        </div>
+                        </a>
+
+                        <a class="group">
+                        <div class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                            <img src="brons/vanity.jpg" class="h-full w-full object-cover object-center">
+                            <p class="gallery_textName">Vanity</p>
+                            <p class="gallery_cmText">144 cm</p>
+                        </div>
+                        </a>
+
+                        <a class="group">
+                        <div class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                            <img src="brons/volante.jpg" class="h-full w-full object-cover object-center">
+                            <p class="gallery_textName">Volante</p>
+                            <p class="gallery_cmText">97 cm</p>
+                        </div>
+                        </a>
+
+                        <a class="group">
+                        <div class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                            <img src="brons/voltige.jpg" class="h-full w-full object-cover object-center">
+                            <p class="gallery_textName">Voltige</p>
+                            <p class="gallery_cmText">33 cm</p>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Brons Content Mobile Stop -->
+            <!-- Keramiek Content Mobile Start -->
+            <div>
+                <h2 class="my-4 text-center ml-auto">
+                    <span class="font-bold leading-6 text-gray-900 sm:text-3xl">Keramiek</span>
+                </h2>
+                <div class="mx-auto w-full px-4 pt-2 pb-16 sm:px-6 sm:pt-8 sm:pb-24 lg:max-w-7xl lg:px-8">
+                    <div class="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+                        <a class="group">
+                        <div class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                            <img src="keramiek/assis.jpg" class="h-full w-full object-cover object-center">
+                            <p class="gallery_textName">Assis</p>
+                            <p class="gallery_cmText">40 cm</p>
+                        </div>
+                        </a>
+
+                        <a class="group">
+                            <div class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                                <img src="keramiek/beschouwend.jpg" class="h-full w-full object-cover object-center">
+                                <p class="gallery_textName">Beschouwend</p>
+                                <p class="gallery_cmText">52 cm</p>
+                            </div>
+                            </a>
+
+                        <a class="group">
+                        <div class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                            <img src="keramiek/maskerade.jpg" class="h-full w-full object-cover object-center">
+                            <p class="gallery_textName">Maskerade</p>
+                            <p class="gallery_cmText">162 cm</p>
+                        </div>
+                        </a>
+
+                        <a class="group">
+                        <div class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                            <img src="keramiek/Overdenking.jpg" class="h-full w-full object-cover object-center">
+                            <p class="gallery_textName">Overdenking</p>
+                            <p class="gallery_cmText">86 cm</p>
+                        </div>
+                        </a>
+
+                        <a class="group">
+                        <div class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                            <img src="keramiek/tors.jpg" class="h-full w-full object-cover object-center">
+                            <p class="gallery_textName">Tors</p>
+                            <p class="gallery_cmText">62 cm</p>
+                        </div>
+                        </a>
+
+                        <a class="group">
+                            <div class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                                <img src="keramiek/trio.jpeg" class="h-full w-full object-cover object-center">
+                                <p class="gallery_textName">Trio</p>
+                                <p class="gallery_cmText">35 cm</p>
+                            </div>
+                            </a>
+
+                            <a class="group">
+                            <div class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                                <img src="keramiek/lachgas.jpg" class="h-full w-full object-cover object-center">
+                                <p class="gallery_textName">Lachgas</p>
+                                <p class="gallery_cmText">25 cm</p>
+                            </div>
+                            </a>
+
+                        <a class="group">
+                        <div class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                            <img src="keramiek/relief.jpg" class="h-full w-full object-cover object-center">
+                            <p class="gallery_textName">Relief</p>
+                            <p class="gallery_cmText">94 cm</p>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
     </section>
     <!-- Einde portfolio -->
     <!-- Begin Event -->
@@ -339,5 +506,6 @@
     </section>
     <!-- Einde Contact -->
 </body>
-<script src="script.js"></script>
+    <script src="script.js"></script>
+    <script src="mobile.js"></script>
 </html>
