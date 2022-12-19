@@ -28,6 +28,7 @@ body {
 }
 #hamburgerMenu {
     margin: auto;
+    height: 80px;
     left: 50%;
     background-color: #DDC6B6;
 }
@@ -44,6 +45,12 @@ nav {
     width: 50%;
     display: flex;
     justify-content: space-between;
+}
+
+#closeOnClick {
+    text-align: center;
+    width: 100%;
+    margin-top: 40px;
 }
 
 li{
@@ -74,7 +81,8 @@ li{
     -webkit-transition: all 0.5s;
 }
 
-.nav-logo{
+.nav-logo {
+    margin-top: 15px;
     left: 2vw;
     position: absolute;
 }
