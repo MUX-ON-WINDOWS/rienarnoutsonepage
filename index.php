@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
     // Mail function and data
     mail('test@rienarnouts.nl', $subject, $message, $headers);
 
-    echo '<p style="color: green">Message sent</p>';
+    echo '<script>alert("Message sent")</script>';
 
     if (!preg_match("/^[A-Za-z .'-]+$/", $name)) {
         $name_error = 'Invalid name';
@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
         $message_error = 'Your message should not be empty';
     }
 } else {
-    echo '<p>Error occurred, please try again later</p>';
+    echo '<script>alert("Error occurred, please try again later")</script>';
 }
 ?>
 <!DOCTYPE html>
