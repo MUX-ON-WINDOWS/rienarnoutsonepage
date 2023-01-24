@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
     $message = "Naam: ".$name."\r\n"."Bericht: ".$info."\r\n";
     $headers =  "From: ".$email."\r\n";
     // Mail function and data
-    mail('admin@rienarnouts.nl', $subject, $message, $headers);
+    mail('test@rienarnouts.nl', $subject, $message, $headers);
 
     echo '<p style="color: green">Message sent</p>';
 
@@ -512,7 +512,7 @@ if (isset($_POST['submit'])) {
                         height="450" style="border:0;"
                         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
-                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST"
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" id="myForm"
                         class="grid grid-cols-1 gap-y-6">
                         <div>
                             <label for="full-name" class="sr-only">Volledige naam:</label>
