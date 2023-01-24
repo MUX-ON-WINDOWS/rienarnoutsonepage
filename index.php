@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
     $message = "Naam: ".$name."\r\n"."Bericht: ".$info."\r\n";
     $headers =  "From: ".$email."\r\n";
     // Mail function and data
-    mail('rienarnouts@rienarnouts.nl', $subject, $message, $headers);
+    mail('test@rienarnouts.nl', $subject, $message, $headers);
 
     echo "<meta http-equiv='refresh' content='0'>";
 
