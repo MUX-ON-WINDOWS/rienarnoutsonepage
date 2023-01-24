@@ -27,7 +27,7 @@ if (isset($_POST['submit'])) {
     if (strlen($message) === 0) {
         $message_error = 'Your message should not be empty';
     }
-    echo "<meta http-equiv='refresh' content='0'>";
+    require_once('index.php');
 }
 ?>
 <!DOCTYPE html>
