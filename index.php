@@ -1,3 +1,36 @@
+<?php
+declare(strict_types = 1);
+
+if (isset($_POST['submit'])) {
+    // get data from form.
+    $name = htmlspecialchars(stripslashes(trim($_POST['full-name'])));
+    $subject = htmlspecialchars(stripslashes(trim($_POST['subject'])));
+    $email = htmlspecialchars(stripslashes(trim($_POST['email'])));
+    $info = htmlspecialchars(stripslashes(trim($_POST['message'])));
+
+    $message = "Naam: ".$name."\r\n"."Bericht: ".$info."\r\n";
+    $headers =  "From: ".$email."\r\n";
+    // Mail function and data
+    mail('admin@rienarnouts.nl', $subject, $message, $headers);
+
+    echo '<p style="color: green">Message sent</p>';
+
+    if (!preg_match("/^[A-Za-z .'-]+$/", $name)) {
+        $name_error = 'Invalid name';
+    }
+    if (!preg_match("/^[A-Za-z .'-]+$/", $subject)) {
+        $subject_error = 'Invalid subject';
+    }
+    if (!pregmatch("/^[A-Za-z0-9.%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,4}$/", $email)) {
+        $email_error = 'Invalid email';
+    }
+    if (strlen($message) === 0) {
+        $message_error = 'Your message should not be empty';
+    }
+} else {
+    echo '<p>Error occurred, please try again later</p>';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -479,25 +512,47 @@
                         height="450" style="border:0;"
                         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
-                    <form  class="grid grid-cols-1 gap-y-6">
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST"
+                        class="grid grid-cols-1 gap-y-6">
                         <div>
                             <label for="full-name" class="sr-only">Volledige naam:</label>
-                            <input type="text" name="full-name" id="full-name" autocomplete="name" class="contactFormData block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm" placeholder="Naam">
+                            <input type="text" name="full-name" id="full-name" autocomplete="name"
+                            class="contactFormData block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm"
+                            placeholder="Naam">
+                            <p><?php if (isset($name_error)) {
+                                echo $name_error;
+                               }?></p>
                         </div>
                         <div>
                             <label for="email" class="sr-only">Email:</label>
-                            <input id="email" name="email" type="email" autocomplete="email" class="contactFormData block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm" placeholder="Email">
+                            <input type="email" name="email" id="email" autocomplete="email"
+                            class="contactFormData block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm"
+                            placeholder="Email">
+                            <p><?php if (isset($email_error)) {
+                                echo $email_error;
+                               } ?></p>
                         </div>
                         <div>
                             <label for="subject" class="sr-only">Onderwerp: </label>
-                            <input type="text" name="subject" id="subject" autocomplete="tel" class="contactFormData block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm" placeholder="Onderwerp">
+                            <input type="text" name="subject" id="subject" autocomplete="tel"
+                            class="contactFormData block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm"
+                            placeholder="Onderwerp">
+                            <p><?php if (isset($subject_error)) {
+                                echo $subject_error;
+                               } ?></p>
                         </div>
                         <div>
                             <label for="message" class="sr-only">Bericht:</label>
-                            <textarea id="message" name="message" rows="4" class="contactFormData block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm" placeholder="Bericht"></textarea>
+                            <textarea id="message" name="message" rows="4"
+                            class="contactFormData block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm"
+                            placeholder="Bericht"></textarea>
+                            <p><?php if (isset($message_error)) {
+                                echo $message_error;
+                               } ?></p>
                         </div>
                         <div>
-                            <button onclick="sendEmail()" class="buttonSubmit rounded p-2" type="submit">Verzenden</button>
+                            <button type="submit" name="submit"
+                            class="buttonSubmit rounded p-2">Verzenden</button>
                         </div>
                     </form>
                 </div>
