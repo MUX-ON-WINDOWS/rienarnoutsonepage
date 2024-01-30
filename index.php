@@ -1,35 +1,51 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 if (isset($_POST['submit'])) {
-    // get data from form.
-    $name = htmlspecialchars(stripslashes(trim($_POST['full-name'])));
-    $subject = htmlspecialchars(stripslashes(trim($_POST['subject'])));
-    $email = htmlspecialchars(stripslashes(trim($_POST['email'])));
-    $info = htmlspecialchars(stripslashes(trim($_POST['message'])));
+    $name = htmlspecialchars(trim($_POST['full-name']));
+    $subject = htmlspecialchars(trim($_POST['subject']));
+    $email = htmlspecialchars(trim($_POST['email']));
+    $messageText = htmlspecialchars(trim($_POST['message']));
 
-    $message = "Naam: ".$name."\r\n"."Bericht: ".$info."\r\n";
-    $headers =  "From: ".$email."\r\n";
-    // Mail function and data
-    mail('test@rienarnouts.nl', $subject, $message, $headers);
+    $name_error = $subject_error = $email_error = $message_error = '';
 
-    echo "<meta http-equiv='refresh' content='0'>";
-
+    // Validate name
     if (!preg_match("/^[A-Za-z .'-]+$/", $name)) {
         $name_error = 'Invalid name';
     }
+
+    // Validate subject
     if (!preg_match("/^[A-Za-z .'-]+$/", $subject)) {
         $subject_error = 'Invalid subject';
     }
-    if (!pregmatch("/^[A-Za-z0-9.%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,4}$/", $email)) {
+
+    // Validate email
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $email_error = 'Invalid email';
     }
-    if (strlen($message) === 0) {
+
+    // Validate message
+    if (strlen($messageText) === 0) {
         $message_error = 'Your message should not be empty';
     }
-    require_once('index.php');
+
+    // If no validation errors, proceed with sending email
+    if (empty($name_error) && empty($subject_error) && empty($email_error) && empty($message_error)) {
+        $message = "Name: $name\r\nSubject: $subject\r\nMessage: $messageText\r\n";
+        $headers = "From: $email\r\n";
+
+        mail('test@rienarnouts.nl', $subject, $message, $headers);
+
+        // Redirect or display a success message as needed
+        header("Location: success.php"); // Replace 'success.php' with the actual success page
+        exit;
+    }
 }
+
+// If here, there were validation errors or initial load, include the form
+require_once('index.php');
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -497,9 +513,7 @@ if (isset($_POST['submit'])) {
                                 class="contactFormData block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm"
                                 placeholder="Naam">
                             <p>
-                                <?php if (isset($name_error)) {
-                echo $name_error;
-            }?>
+                                <?php if (isset($name_error)) {echo $name_error;}?>
                             </p>
                         </div>
                         <div>
@@ -508,9 +522,7 @@ if (isset($_POST['submit'])) {
                                 class="contactFormData block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm"
                                 placeholder="Email">
                             <p>
-                                <?php if (isset($email_error)) {
-                echo $email_error;
-            } ?>
+                                <?php if(isset($email_error)) {echo $email_error;} ?>
                             </p>
                         </div>
                         <div>
@@ -519,9 +531,7 @@ if (isset($_POST['submit'])) {
                                 class="contactFormData block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm"
                                 placeholder="Onderwerp">
                             <p>
-                                <?php if (isset($subject_error)) {
-                echo $subject_error;
-            } ?>
+                                <?php if (isset($subject_error)) {echo $subject_error;} ?>
                             </p>
                         </div>
                         <div>
@@ -530,9 +540,7 @@ if (isset($_POST['submit'])) {
                                 class="contactFormData block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm"
                                 placeholder="Bericht"></textarea>
                             <p>
-                                <?php if (isset($message_error)) {
-                echo $message_error;
-            } ?>
+                                <?php if (isset($message_error)) {echo $message_error;} ?>
                             </p>
                         </div>
                         <div>
