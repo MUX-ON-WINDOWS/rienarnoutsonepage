@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
         mail('test@rienarnouts.nl', $subject, $message, $headers);
 
         // Redirect or display a success message as needed
-        header("Location: success.php"); // Replace 'success.php' with the actual success page
+        // header("Location: success.php"); // Replace 'success.php' with the actual success page
         exit;
     }
 }
