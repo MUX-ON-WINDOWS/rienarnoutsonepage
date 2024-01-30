@@ -3,7 +3,9 @@
     margin: 0px;
     padding: 0px;
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
+
 body {
     background-color: #fff;
     font-family: 'Open Sans', sans-serif;
@@ -18,14 +20,17 @@ body {
     display: none;
     background-color: #DDC6B6;
 }
+
 .close {
     display: none;
     background-color: #DDC6B6;
 }
+
 .open {
     transition: all 0.5s;
     background-color: #DDC6B6;
 }
+
 #hamburgerMenu {
     margin: auto;
     height: 80px;
@@ -53,17 +58,21 @@ nav {
     margin-top: 40px;
 }
 
-li{
+li {
     list-style: none;
 }
-.nav-item{
+
+.nav-item {
     margin-top: 25px;
     margin-bottom: 25px;
 }
 
-.nav-link{
+.nav-link {
     font-size: 20px;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
 }
+
 .nav-link:hover {
     background-color: #262223;
     color: #DDC6B6;
@@ -74,6 +83,7 @@ li{
 .nav-response-link {
     font-size: 20px;
 }
+
 .nav-response-link:hover {
     background-color: #262223;
     color: #DDC6B6;
@@ -87,7 +97,7 @@ li{
     position: absolute;
 }
 
-.logo{
+.logo {
     width: 70px;
 }
 
@@ -106,19 +116,24 @@ li{
 /* Begin portfolio Window */
 
 .grayoutimg {
+    transition: .3s;
     filter: grayscale(1);
 }
+
 .grayoutimg:hover {
     transition: .3s;
     filter: grayscale(0);
     transform: scale(1.1);
 }
-.grayoutimg:hover > .gallery__caption {
+
+.grayoutimg:hover>.gallery__caption {
     opacity: 1;
 }
-.grayoutimg:hover > .gallery__cm {
+
+.grayoutimg:hover>.gallery__cm {
     opacity: 1;
 }
+
 .gallery__caption {
     position: absolute;
     bottom: 0;
@@ -129,9 +144,10 @@ li{
     font-size: 16px;
     color: white;
     opacity: 0;
-    background: linear-gradient(0deg, rgba(0, 0, 0, .5) 0%, rgba(255, 255 ,255 , 0) 100%);
+    background: linear-gradient(0deg, rgba(0, 0, 0, .5) 0%, rgba(255, 255, 255, 0) 100%);
     transition: .3s;
 }
+
 .gallery__cm {
     position: absolute;
     bottom: 0;
@@ -157,9 +173,10 @@ li{
     font-family: 'Raleway', sans-serif;
     font-size: 16px;
     color: white;
-    background: linear-gradient(0deg, rgba(0, 0, 0, .5) 0%, rgba(255, 255 ,255 , 0) 100%);
+    background: linear-gradient(0deg, rgba(0, 0, 0, .5) 0%, rgba(255, 255, 255, 0) 100%);
     transition: .3s;
 }
+
 .gallery_cmText {
     position: absolute;
     bottom: 0;
@@ -179,10 +196,12 @@ li{
     color: #262223;
     padding: 8px;
 }
-.active, .buttonSwitch:hover {
+
+.active,
+.buttonSwitch:hover {
     color: #262223;
     border-bottom: #262223 4px solid;
-  }
+}
 
 .buttonSwitch:hover {
     color: #262223;
@@ -193,42 +212,47 @@ li{
 #switchContent .hide {
     display: none;
 }
+
 .buttonSwitch {
     color: #262223;
     border-radius: 5px;
     padding: 15px;
 }
+
 .buttonSubmit {
     background-color: #DDC6B6;
     border-bottom: 2px solid #262223;
 }
-.buttonSubmit:hover
-{
+
+.buttonSubmit:hover {
     background-color: #262223;
     color: #DDC6B6;
     transition: all 0.5s;
     -webkit-transition: all 0.5s;
 }
+
 .contactFormData {
     background-color: #DDC6B6;
-    color:#262223;
+    color: #262223;
 }
+
 .contactFormData:hover {
     background-color: #262223;
     color: #DDC6B6;
     transition: all 0.5s;
     -webkit-transition: all 0.5s;
 }
+
 .contactFormData::placeholder {
     color: #262223;
 }
+
 .contactFormData:hover::placeholder {
     color: #DDC6B6;
 }
 
-@media
-(prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
-}
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
 }
