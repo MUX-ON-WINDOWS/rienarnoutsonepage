@@ -4,30 +4,48 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 if (isset($_POST['submit'])) {
-    $name = htmlspecialchars(trim($_POST['full-name']));
-    $subject = htmlspecialchars(trim($_POST['subject']));
-    $email = htmlspecialchars(trim($_POST['email']));
-    $messageText = htmlspecialchars(trim($_POST['message']));
+    // Initialize variables with empty strings
+    $name = '';
+    $subject = '';
+    $email = '';
+    $messageText = '';
+
+    // Check and assign values from $_POST
+    if (isset($_POST['full-name']) && is_string($_POST['full-name'])) {
+        $name = htmlspecialchars(trim($_POST['full-name']));
+    }
+
+    if (isset($_POST['subject']) && is_string($_POST['subject'])) {
+        $subject = htmlspecialchars(trim($_POST['subject']));
+    }
+
+    if (isset($_POST['email']) && is_string($_POST['email'])) {
+        $email = htmlspecialchars(trim($_POST['email']));
+    }
+
+    if (isset($_POST['message']) && is_string($_POST['message'])) {
+        $messageText = htmlspecialchars(trim($_POST['message']));
+    }
 
     $name_error = $subject_error = $email_error = $message_error = '';
 
     // Validate name
-    if (!preg_match("/^[A-Za-z .'-]+$/", $name)) {
+    if ($name !== '' && !preg_match("/^[A-Za-z .'-]+$/", $name)) {
         $name_error = 'Invalid name';
     }
 
     // Validate subject
-    if (!preg_match("/^[A-Za-z .'-]+$/", $subject)) {
-        $subject_error = 'Invalid subject';
-    }
+	if ($subject === '') {
+		$subject_error = 'Subject is required';
+	}
 
     // Validate email
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    if ($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $email_error = 'Invalid email';
     }
 
     // Validate message
-    if (strlen($messageText) === 0) {
+    if ($messageText === '') {
         $message_error = 'Your message should not be empty';
     }
 
@@ -40,14 +58,14 @@ if (isset($_POST['submit'])) {
 
         // Redirect or display a success message as needed
         // header("Location: success.php"); // Replace 'success.php' with the actual success page
-        exit;
-    }
+		$success_message = '';
+
+	}
 }
-
-// If here, there were validation errors or initial load, include the form
-require_once('index.php');
 ?>
-
+<?php if (!empty($success_message)) : ?>
+    <p class="success-message"><?php echo $success_message; ?></p>
+<?php endif; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -507,8 +525,7 @@ require_once('index.php');
                         height="450" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
-                    <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF"]);?>" method="POST" id="myForm"
-                        class="grid grid-cols-1 gap-y-6">
+<form action="<?php echo isset($_SERVER["PHP_SELF"]) ? htmlspecialchars($_SERVER["PHP_SELF"]) : ''; ?>" method="POST" id="myForm" class="grid grid-cols-1 gap-y-6">
                         <div>
                             <label for="full-name" class="sr-only">Volledige naam:</label>
                             <input type="text" name="full-name" id="full-name" autocomplete="name"
