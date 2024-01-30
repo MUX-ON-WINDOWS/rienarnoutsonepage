@@ -181,25 +181,9 @@ if (isset($_POST['submit'])) {
 
                         <a class="group">
                         <div class="grayoutimg relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                            <img src="brons/marilyn.jpg" class="grayoutimg h-full w-full object-cover object-center">
-                            <p class="gallery__caption">Marilyn</p>
-                            <p class="gallery__cm">52 cm</p>
-                        </div>
-                        </a>
-
-                        <a class="group">
-                        <div class="grayoutimg relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
                             <img src="brons/sourire.jpg" class="h-full w-full object-cover object-center">
                             <p class="gallery__caption">Sourire</p>
                             <p class="gallery__cm">52 cm</p>
-                        </div>
-                        </a>
-
-                        <a class="group">
-                        <div class="grayoutimg relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                            <img src="brons/uitdagend.jpg" class="h-full w-full object-cover object-center">
-                            <p class="gallery__caption">Uitdagend</p>
-                            <p class="gallery__cm">35 cm</p>
                         </div>
                         </a>
 
@@ -237,6 +221,14 @@ if (isset($_POST['submit'])) {
                             <img src="keramiek/assis.jpg" class="h-full w-full object-cover object-center">
                             <p class="gallery__caption">Assis</p>
                             <p class="gallery__cm">40 cm</p>
+                        </div>
+                        </a>
+                        
+                        <a class="group">
+                        <div class="grayoutimg relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                            <img src="keramiek/3gratiën.jpg" class="h-full w-full object-cover object-center">
+                            <p class="gallery__caption">3gratiën</p>
+                            <p class="gallery__cm">52 cm</p>
                         </div>
                         </a>
 
@@ -277,14 +269,6 @@ if (isset($_POST['submit'])) {
                                 <img src="keramiek/trio.jpeg" class="grayoutimg h-full w-full object-cover object-center">
                                 <p class="gallery__caption">Trio</p>
                                 <p class="gallery__cm">35 cm</p>
-                            </div>
-                            </a>
-
-                            <a class="group">
-                            <div class="grayoutimg relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                <img src="keramiek/dialoog.jpg" class="h-full w-full object-cover object-center">
-                                <p class="gallery__caption">Dialoog</p>
-                                <p class="gallery__cm">32 cm</p>
                             </div>
                             </a>
 
@@ -336,25 +320,9 @@ if (isset($_POST['submit'])) {
 
                         <a class="group">
                         <div class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                            <img src="brons/marilyn.jpg" class="h-full w-full object-cover object-center">
-                            <p class="gallery_textName">Marilyn</p>
-                            <p class="gallery_cmText">52 cm</p>
-                        </div>
-                        </a>
-
-                        <a class="group">
-                        <div class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
                             <img src="brons/sourire.jpg" class="h-full w-full object-cover object-center">
                             <p class="gallery_textName">Sourire</p>
                             <p class="gallery_cmText">52 cm</p>
-                        </div>
-                        </a>
-
-                        <a class="group">
-                        <div class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                            <img src="brons/uitdagend.jpg" class="h-full w-full object-cover object-center">
-                            <p class="gallery_textName">Uitdagend</p>
-                            <p class="gallery_cmText">35 cm</p>
                         </div>
                         </a>
 
@@ -401,6 +369,14 @@ if (isset($_POST['submit'])) {
                         </a>
 
                         <a class="group">
+                        <div class="grayoutimg relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                            <img src="keramiek/3gratiën.jpg" class="h-full w-full object-cover object-center">
+                            <p class="gallery__caption">3gratiën</p>
+                            <p class="gallery__cm">52 cm</p>
+                        </div>
+                        </a>
+
+                        <a class="group">
                             <div class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
                                 <img src="keramiek/beschouwend.jpg" class="h-full w-full object-cover object-center">
                                 <p class="gallery_textName">Beschouwend</p>
@@ -437,14 +413,6 @@ if (isset($_POST['submit'])) {
                                 <img src="keramiek/trio.jpeg" class="h-full w-full object-cover object-center">
                                 <p class="gallery_textName">Trio</p>
                                 <p class="gallery_cmText">35 cm</p>
-                            </div>
-                            </a>
-
-                            <a class="group">
-                            <div class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                <img src="keramiek/dialoog.jpg" class="h-full w-full object-cover object-center">
-                                <p class="gallery_textName">Dialoog</p>
-                                <p class="gallery_cmText">32 cm</p>
                             </div>
                             </a>
 
