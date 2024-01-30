@@ -7,7 +7,6 @@ const openSign = document.getAnimations('openSign');
 
 const closeOnClick = document.getElementById('closeOnClick');
 
-
 hamburgerSwitch.className = 'close'
 
 function openHamburger() {

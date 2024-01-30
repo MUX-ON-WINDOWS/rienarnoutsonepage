@@ -498,8 +498,8 @@ if (isset($_POST['submit'])) {
                                 placeholder="Naam">
                             <p>
                                 <?php if (isset($name_error)) {
-                                echo $name_error;
-                               }?>
+                echo $name_error;
+            }?>
                             </p>
                         </div>
                         <div>
@@ -509,8 +509,8 @@ if (isset($_POST['submit'])) {
                                 placeholder="Email">
                             <p>
                                 <?php if (isset($email_error)) {
-                                echo $email_error;
-                               } ?>
+                echo $email_error;
+            } ?>
                             </p>
                         </div>
                         <div>
@@ -520,8 +520,8 @@ if (isset($_POST['submit'])) {
                                 placeholder="Onderwerp">
                             <p>
                                 <?php if (isset($subject_error)) {
-                                echo $subject_error;
-                               } ?>
+                echo $subject_error;
+            } ?>
                             </p>
                         </div>
                         <div>
@@ -531,14 +531,15 @@ if (isset($_POST['submit'])) {
                                 placeholder="Bericht"></textarea>
                             <p>
                                 <?php if (isset($message_error)) {
-                                echo $message_error;
-                               } ?>
+                echo $message_error;
+            } ?>
                             </p>
                         </div>
                         <div>
                             <button type="submit" name="submit" class="buttonSubmit rounded p-2">Verzenden</button>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>
