@@ -522,7 +522,7 @@ if (isset($_POST['submit'])) {
                     <span class="text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">Agenda</span>
                 </h1>
                 <div class="mx-auto my-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <ul style="display: flex; flex-wrap: wrap; gap: 10px;" role="list" class="">
+                    <ul style="display: flex; flex-wrap: wrap; gap: 10px;" role="list" class="mx-auto ml-5">
                         <li class="overflow-hidden bg-white px-4 py-12 sm:rounded-md sm:px-6" style="background-color: #DDC6B6;">
                             <div class="flex">
                                 <img src="img/agendaImage.jpg" class="h-40 w-40 object-cover object-center rounded-lg">
