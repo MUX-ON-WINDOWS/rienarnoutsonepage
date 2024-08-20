@@ -1,12 +1,3 @@
-const hamburgerMenu = document.getElementById('hamburgerMenu');
-const homeLogo = document.getElementById('homeLogo');
-const hamburgerSwitch = document.getElementById('hamburgerSwitch');
-
-const closeSign = document.getAnimations('closeSign');
-const openSign = document.getAnimations('openSign');
-
-const closeOnClick = document.getElementById('closeOnClick');
-
 hamburgerSwitch.className = 'close'
 
 function openHamburger() {

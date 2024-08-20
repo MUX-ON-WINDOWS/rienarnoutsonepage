@@ -145,7 +145,7 @@ if (isset($_POST['submit'])) {
     <!-- Einde header -->
     <!-- Start video -->
     <section id="about">
-        <div class="h-full mb-20">
+        <div class="mb-20">
             <div class="relative overflow-hidden py-16">
                 <h1 class="my-4 text-center mx-auto">
                     <span class="text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">Over mij</span>
@@ -193,7 +193,7 @@ if (isset($_POST['submit'])) {
 
     <!-- Window Portfolio -->
     <section id="portfolioWindow">
-        <div class="h-full" style="background-color: #DDC6B6;">
+        <div style="background-color: #DDC6B6;">
             <div class="mx-auto w-full px-4 pt-12 sm:px-6 sm:pt-16 lg:max-w-7xl lg:px-8">
                 <h1 class="my-4 text-center ml-auto">
                     <span class="text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">Portfolio</span>
@@ -352,7 +352,7 @@ if (isset($_POST['submit'])) {
 
     <!-- Mobile Portfolio -->
     <section id="portfolioMobile">
-        <div class="h-full" style="background-color: #DDC6B6;">
+        <div style="background-color: #DDC6B6;">
             <div class="mx-auto w-full px-4 pt-12 sm:px-6 sm:pt-16 lg:max-w-7xl lg:px-8">
                 <h1 class="my-4 text-center ml-auto">
                     <span class="text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">Portfolio</span>
@@ -512,61 +512,103 @@ if (isset($_POST['submit'])) {
         </div>
     </section>
     <!-- Einde portfolio -->
+
+     <!-- Begin Event -->
+
+    <section id="agenda" class="">
+        <div class="mb-20">
+            <div class="relative overflow-hidden py-16">
+                <h1 class="my-4 text-center mx-auto">
+                    <span class="text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">Agenda</span>
+                </h1>
+                <div class="mx-auto my-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <ul style="display: flex; flex-wrap: wrap; gap: 10px;" role="list" class="">
+                        <li class="overflow-hidden bg-white px-4 py-12 sm:rounded-md sm:px-6" style="background-color: #DDC6B6;">
+                            <div class="flex">
+                                <img src="img/agendaImage.jpg" class="h-40 w-40 object-cover object-center rounded-lg">
+                                <div class="ml-5">
+                                    <h1 class="text-2xl font-semibold leading-8 tracking-tight text-gray-900 sm:text-2xl">Zondag 1 september 2024</h1>
+                                    <br>
+                                    <h2 class="text-xl font-semibold leading-8 tracking-tight text-gray-900 sm:text-xl">Open Ateliers Oosterhout</h2>
+                                    <p>Venkelhof 6, 4907HK Oosterhout</p>
+                                    <p>13:00 - 18:00 uur</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="overflow-hidden bg-white px-4 py-12 sm:rounded-md sm:px-6" style="background-color: #DDC6B6;">
+                            <div class="flex">
+                                <img src="brons/volante.jpg" class="h-40 w-40 object-cover object-center rounded-lg">
+                                <div class="ml-5">
+                                    <h1 class="text-2xl font-semibold leading-8 tracking-tight text-gray-900 sm:text-2xl">Zondag 8 september 2024</h1>
+                                    <br>
+                                    <h2 class="text-xl font-semibold leading-8 tracking-tight text-gray-900 sm:text-xl">Open Ateliers Oosterhout</h2>
+                                    <p>Venkelhof 6, 4907HK Oosterhout</p>
+                                    <p>13:00 - 18:00 uur</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Einde Event -->
     <!-- Begin Contact -->
-    <section id="contact">
+    <section id="contact" style="background-color: #DDC6B6;">
         <div class="h-full">
             <div class="relative overflow-hidden py-16">
                 <h1 class="my-4 mb-14 text-center mx-auto">
                     <span class="text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">Contact</span>
                 </h1>
-                <div class="h-full grid grid-cols-1 gap-6 mx-20 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
-                    <iframe class="w-full"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2475.300861409357!2d4.876090715970081!3d51.65432770777031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c69968eef9c87d%3A0xce85afb569654a7e!2sVenkelhof%206%2C%204907%20HK%20Oosterhout!5e0!3m2!1snl!2snl!4v1664954550942!5m2!1snl!2snl"
-                        height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade">
+                <div class="grid grid-cols-1 gap-6 mx-20 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
+                    <iframe class="w-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2475.300861409357!2d4.876090715970081!3d51.65432770777031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c69968eef9c87d%3A0xce85afb569654a7e!2sVenkelhof%206%2C%204907%20HK%20Oosterhout!5e0!3m2!1snl!2snl!4v1664954550942!5m2!1snl!2snl"
+                        height="450" style="border:0;"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
-<form action="<?php echo isset($_SERVER["PHP_SELF"]) ? htmlspecialchars($_SERVER["PHP_SELF"]) : ''; ?>" method="POST" id="myForm" class="grid grid-cols-1 gap-y-6">
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" id="myForm"
+                        class="grid grid-cols-1 gap-y-6">
                         <div>
                             <label for="full-name" class="sr-only">Volledige naam:</label>
                             <input type="text" name="full-name" id="full-name" autocomplete="name"
-                                class="contactFormData block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm"
-                                placeholder="Naam">
-                            <p>
-                                <?php if (isset($name_error)) {echo $name_error;}?>
-                            </p>
+                            class="contactFormData block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm"
+                            placeholder="Naam">
+                            <p><?php if (isset($name_error)) {
+                                echo $name_error;
+                               }?></p>
                         </div>
                         <div>
                             <label for="email" class="sr-only">Email:</label>
                             <input type="email" name="email" id="email" autocomplete="email"
-                                class="contactFormData block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm"
-                                placeholder="Email">
-                            <p>
-                                <?php if(isset($email_error)) {echo $email_error;} ?>
-                            </p>
+                            class="contactFormData block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm"
+                            placeholder="Email">
+                            <p><?php if (isset($email_error)) {
+                                echo $email_error;
+                               } ?></p>
                         </div>
                         <div>
                             <label for="subject" class="sr-only">Onderwerp: </label>
                             <input type="text" name="subject" id="subject" autocomplete="tel"
-                                class="contactFormData block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm"
-                                placeholder="Onderwerp">
-                            <p>
-                                <?php if (isset($subject_error)) {echo $subject_error;} ?>
-                            </p>
+                            class="contactFormData block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm"
+                            placeholder="Onderwerp">
+                            <p><?php if (isset($subject_error)) {
+                                echo $subject_error;
+                               } ?></p>
                         </div>
                         <div>
                             <label for="message" class="sr-only">Bericht:</label>
                             <textarea id="message" name="message" rows="4"
-                                class="contactFormData block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm"
-                                placeholder="Bericht"></textarea>
-                            <p>
-                                <?php if (isset($message_error)) {echo $message_error;} ?>
-                            </p>
+                            class="contactFormData block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm"
+                            placeholder="Bericht"></textarea>
+                            <p><?php if (isset($message_error)) {
+                                echo $message_error;
+                               } ?></p>
                         </div>
                         <div>
-                            <button type="submit" name="submit" class="buttonSubmit rounded p-2">Verzenden</button>
+                            <button type="submit" name="submit"
+                            class="buttonSubmit rounded p-2">Verzenden</button>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>

@@ -220,7 +220,7 @@ li {
 }
 
 .buttonSubmit {
-    background-color: #DDC6B6;
+    background-color: white;
     border-bottom: 2px solid #262223;
 }
 
@@ -232,7 +232,8 @@ li {
 }
 
 .contactFormData {
-    background-color: #DDC6B6;
+    margin-bottom: 30px;
+    background-color: white;
     color: #262223;
 }
 
