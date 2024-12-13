@@ -512,10 +512,27 @@ if (isset($_POST['submit'])) {
         </div>
     </section>
     <!-- Einde portfolio -->
+     <!-- Begin Video -->
 
+     <section id="agenda" class="">
+        <div class="mb-20">
+            <div class="relative overflow-hidden py-16">
+                <h1 class="my-4 text-center mx-auto">
+                    <span class="text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">Keramiek brons video</span>
+                </h1>
+                <div class="mx-auto my-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/NNDKonAWHNM?si=XaDV7M6clPAkyi77">
+
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Einde Video -->
      <!-- Begin Event -->
 
-    <section id="agenda" class="">
+    <!-- <section id="agenda" class="">
         <div class="mb-20">
             <div class="relative overflow-hidden py-16">
                 <h1 class="my-4 text-center mx-auto">
@@ -551,7 +568,7 @@ if (isset($_POST['submit'])) {
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Einde Event -->
     <!-- Begin Contact -->
