@@ -230,15 +230,6 @@ if (isset($_POST['submit'])) {
                             <a class="group">
                                 <div
                                     class="grayoutimg relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                    <img src="brons/sourire.jpg" class="h-full w-full object-cover object-center">
-                                    <p class="gallery__caption">Sourire</p>
-                                    <p class="gallery__cm">52 cm</p>
-                                </div>
-                            </a>
-
-                            <a class="group">
-                                <div
-                                    class="grayoutimg relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
                                     <img src="brons/vanity.jpg" class="h-full w-full object-cover object-center">
                                     <p class="gallery__caption">Vanity</p>
                                     <p class="gallery__cm">144 cm</p>
@@ -275,25 +266,6 @@ if (isset($_POST['submit'])) {
                                     <img src="keramiek/assis.jpg" class="h-full w-full object-cover object-center">
                                     <p class="gallery__caption">Assis</p>
                                     <p class="gallery__cm">40 cm</p>
-                                </div>
-                            </a>
-
-                            <a class="group">
-                                <div
-                                    class="grayoutimg relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                    <img src="keramiek/3gratien.jpeg" class="h-full w-full object-cover object-center">
-                                    <p class="gallery__caption">3gratiën</p>
-                                    <p class="gallery__cm">52 cm</p>
-                                </div>
-                            </a>
-
-                            <a class="group">
-                                <div
-                                    class="grayoutimg relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                    <img src="keramiek/beschouwend.jpg"
-                                        class="grayoutimg h-full w-full object-cover object-center">
-                                    <p class="gallery__caption">Beschouwend</p>
-                                    <p class="gallery__cm">52 cm</p>
                                 </div>
                             </a>
 
@@ -388,15 +360,6 @@ if (isset($_POST['submit'])) {
                             <a class="group">
                                 <div
                                     class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                    <img src="brons/sourire.jpg" class="h-full w-full object-cover object-center">
-                                    <p class="gallery_textName">Sourire</p>
-                                    <p class="gallery_cmText">52 cm</p>
-                                </div>
-                            </a>
-
-                            <a class="group">
-                                <div
-                                    class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
                                     <img src="brons/vanity.jpg" class="h-full w-full object-cover object-center">
                                     <p class="gallery_textName">Vanity</p>
                                     <p class="gallery_cmText">144 cm</p>
@@ -438,25 +401,6 @@ if (isset($_POST['submit'])) {
                                     <img src="keramiek/assis.jpg" class="h-full w-full object-cover object-center">
                                     <p class="gallery_textName">Assis</p>
                                     <p class="gallery_cmText">40 cm</p>
-                                </div>
-                            </a>
-
-                            <a class="group">
-                                <div
-                                    class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                    <img src="keramiek/3gratien.jpeg" class="h-full w-full object-cover object-center">
-                                    <p class="gallery_textName">3gratiën</p>
-                                    <p class="gallery_cmText">52 cm</p>
-                                </div>
-                            </a>
-
-                            <a class="group">
-                                <div
-                                    class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                    <img src="keramiek/beschouwend.jpg"
-                                        class="h-full w-full object-cover object-center">
-                                    <p class="gallery_textName">Beschouwend</p>
-                                    <p class="gallery_cmText">52 cm</p>
                                 </div>
                             </a>
 
