@@ -22,7 +22,8 @@ function copyIfExists(source, target) {
 
 const copied = [];
 const files = [
-  ['index.html', 'index.html'],
+  // ['index.html', 'index.html'],
+  ['index.php', 'index.php'],
   ['style.css', 'style.css'],
   ['script.js', 'script.js'],
   ['mobile.js', 'mobile.js'],

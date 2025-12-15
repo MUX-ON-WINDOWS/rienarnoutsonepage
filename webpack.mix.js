@@ -17,7 +17,7 @@ mix.js('script.js', 'script.js');
 mix.copy('mobile.js', 'dist/mobile.js');
 
 // Copy the static HTML entry
-mix.copy('index.html', 'dist');
+mix.copy('index.php', 'dist');
 
 // Copy the main CSS
 mix.copy('style.css', 'dist/style.css');

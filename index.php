@@ -54,7 +54,7 @@ if (isset($_POST['submit'])) {
         $message = "Name: $name\r\nSubject: $subject\r\nMessage: $messageText\r\n";
         $headers = "From: $email\r\n";
 
-        mail('test@rienarnouts.nl', $subject, $message, $headers);
+        mail('webmaster@rienarnouts.nl', $subject, $message, $headers);
 
         // Redirect or display a success message as needed
         // header("Location: success.php"); // Replace 'success.php' with the actual success page
