@@ -257,3 +257,62 @@ li {
         scroll-behavior: smooth;
     }
 }
+
+/* Mobile / tablet tweaks */
+@media (max-width: 1024px) {
+    /* About text smaller and more readable */
+    #text_aboutme {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    /* Hero section: avoid vaste hoge hoogte op kleinere schermen */
+    .begin,
+    .screen {
+        height: auto;
+    }
+
+    /* Navigatie wat breder zodat items niet te dicht op elkaar staan */
+    .nav-wrapper {
+        width: 90%;
+    }
+
+    /* Margin rond content iets smaller */
+    #about .mx-20,
+    #contact .mx-20 {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    body {
+        font-size: 14px;
+    }
+
+    /* Logo wat kleiner op hele kleine schermen */
+    .logo {
+        width: 56px;
+    }
+
+    /* Hamburger / mobiele navigatie spacing */
+    #closeOnClick {
+        margin-top: 20px;
+    }
+
+    .nav-item {
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+
+    /* Portfolio kaarten iets meer ruimte ertussen */
+    .gallery__caption,
+    .gallery_textName {
+        font-size: 14px;
+    }
+
+    .gallery__cm,
+    .gallery_cmText {
+        font-size: 13px;
+    }
+}

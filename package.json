@@ -4,11 +4,17 @@
   "description": "Rien Arnouts",
   "main": "scripts.js",
   "scripts": {
-    "test": "dev"
+    "dev": "npx serve -l 3000 .",
+    "build": "node build.js",
+    "start": "npm run dev",
+    "test": "echo \"No tests defined\" && exit 0"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "browser-sync": "^2.29.3",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "laravel-mix": "^6.0.49",
     "mix-tailwindcss": "^1.3.0"
   },
   "dependencies": {
