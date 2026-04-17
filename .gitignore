@@ -1,6 +1,9 @@
 node_modules/
 dist/
 .env
+config.local.php
+uploads/portfolio/*
+!uploads/portfolio/.gitkeep
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

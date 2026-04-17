@@ -3,6 +3,37 @@ declare(strict_types=1);
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+require_once __DIR__ . '/config.php';
+
+$portfolioPhotos = [
+    'brons' => [],
+    'keramiek' => [],
+];
+
+try {
+    $pdo = getPDO();
+    $portfolioStatement = $pdo->query('SELECT foto, category, titel, afmeting_hoogte FROM foto_data ORDER BY id DESC');
+    $rows = $portfolioStatement->fetchAll();
+
+    foreach ($rows as $row) {
+        $category = (string) ($row['category'] ?? '');
+        if (!isset($portfolioPhotos[$category])) {
+            continue;
+        }
+
+        $portfolioPhotos[$category][] = [
+            'foto' => (string) ($row['foto'] ?? ''),
+            'titel' => (string) ($row['titel'] ?? ''),
+            'afmeting_hoogte' => (string) ($row['afmeting_hoogte'] ?? ''),
+        ];
+    }
+} catch (Throwable $exception) {
+    $portfolioPhotos = [
+        'brons' => [],
+        'keramiek' => [],
+    ];
+}
+
 if (isset($_POST['submit'])) {
     // Initialize variables with empty strings
     $name = '';
@@ -208,51 +239,20 @@ if (isset($_POST['submit'])) {
                     <div class="mx-auto w-full px-4 pt-2 pb-16 sm:px-6 sm:pt-8 sm:pb-24 lg:max-w-7xl lg:px-8">
                         <div
                             class="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-                            <a class="group">
-                                <div
-                                    class="grayoutimg relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                    <img src="brons/cobra.jpg" class="h-full w-full object-cover object-center">
-                                    <p class="gallery__caption">Cobra</p>
-                                    <p class="gallery__cm">33 cm</p>
-                                </div>
-                            </a>
-
-                            <a class="group">
-                                <div
-                                    class="grayoutimg relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                    <img src="brons/jumeau.jpg"
-                                        class="grayoutimg h-full w-full object-cover object-center">
-                                    <p class="gallery__caption">Jumeau</p>
-                                    <p class="gallery__cm">60 cm</p>
-                                </div>
-                            </a>
-
-                            <a class="group">
-                                <div
-                                    class="grayoutimg relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                    <img src="brons/vanity.jpg" class="h-full w-full object-cover object-center">
-                                    <p class="gallery__caption">Vanity</p>
-                                    <p class="gallery__cm">144 cm</p>
-                                </div>
-                            </a>
-
-                            <a class="group">
-                                <div
-                                    class="grayoutimg relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                    <img src="brons/volante.jpg" class="h-full w-full object-cover object-center">
-                                    <p class="gallery__caption">Volante</p>
-                                    <p class="gallery__cm">97 cm</p>
-                                </div>
-                            </a>
-
-                            <a class="group">
-                                <div
-                                    class="grayoutimg relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                    <img src="brons/voltige.jpg" class="h-full w-full object-cover object-center">
-                                    <p class="gallery__caption">Voltige</p>
-                                    <p class="gallery__cm">33 cm</p>
-                                </div>
-                            </a>
+                            <?php if (count($portfolioPhotos['brons']) === 0): ?>
+                                <p class="text-gray-700">Nog geen brons foto's toegevoegd.</p>
+                            <?php else: ?>
+                                <?php foreach ($portfolioPhotos['brons'] as $photo): ?>
+                                    <a class="group">
+                                        <div
+                                            class="grayoutimg relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                                            <img src="<?php echo htmlspecialchars($photo['foto']); ?>" class="h-full w-full object-cover object-center">
+                                            <p class="gallery__caption"><?php echo htmlspecialchars($photo['titel']); ?></p>
+                                            <p class="gallery__cm"><?php echo htmlspecialchars($photo['afmeting_hoogte']); ?></p>
+                                        </div>
+                                    </a>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -260,61 +260,20 @@ if (isset($_POST['submit'])) {
                     <div class="mx-auto w-full px-4 pt-2 pb-16 sm:px-6 sm:pt-8 sm:pb-24 lg:max-w-7xl lg:px-8">
                         <div
                             class="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-                            <a class="group">
-                                <div
-                                    class="grayoutimg relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                    <img src="keramiek/assis.jpg" class="h-full w-full object-cover object-center">
-                                    <p class="gallery__caption">Assis</p>
-                                    <p class="gallery__cm">40 cm</p>
-                                </div>
-                            </a>
-
-                            <a class="group">
-                                <div
-                                    class="grayoutimg relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                    <img src="keramiek/bovenOnder.jpg" class="h-full w-full object-cover object-center">
-                                    <p class="gallery__caption">Boven & onder</p>
-                                    <p class="gallery__cm">24 cm</p>
-                                </div>
-                            </a>
-
-                            <a class="group">
-                                <div
-                                    class="grayoutimg relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                    <img src="keramiek/Overdenking.jpg"
-                                        class="h-full w-full object-cover object-center">
-                                    <p class="gallery__caption">Overdenking</p>
-                                    <p class="gallery__cm">86 cm</p>
-                                </div>
-                            </a>
-
-                            <a class="group">
-                                <div
-                                    class="grayoutimg relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                    <img src="keramiek/tors.jpg" class="h-full w-full object-cover object-center">
-                                    <p class="gallery__caption">Tors</p>
-                                    <p class="gallery__cm">62 cm</p>
-                                </div>
-                            </a>
-
-                            <a class="group">
-                                <div
-                                    class="grayoutimg relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                    <img src="keramiek/trio.jpeg"
-                                        class="grayoutimg h-full w-full object-cover object-center">
-                                    <p class="gallery__caption">Trio</p>
-                                    <p class="gallery__cm">35 cm</p>
-                                </div>
-                            </a>
-
-                            <a class="group">
-                                <div
-                                    class="grayoutimg relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                    <img src="keramiek/relief.jpg" class="h-full w-full object-cover object-center">
-                                    <p class="gallery__caption">Relief</p>
-                                    <p class="gallery__cm">94 cm</p>
-                                </div>
-                            </a>
+                            <?php if (count($portfolioPhotos['keramiek']) === 0): ?>
+                                <p class="text-gray-700">Nog geen keramiek foto's toegevoegd.</p>
+                            <?php else: ?>
+                                <?php foreach ($portfolioPhotos['keramiek'] as $photo): ?>
+                                    <a class="group">
+                                        <div
+                                            class="grayoutimg relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                                            <img src="<?php echo htmlspecialchars($photo['foto']); ?>" class="h-full w-full object-cover object-center">
+                                            <p class="gallery__caption"><?php echo htmlspecialchars($photo['titel']); ?></p>
+                                            <p class="gallery__cm"><?php echo htmlspecialchars($photo['afmeting_hoogte']); ?></p>
+                                        </div>
+                                    </a>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -339,50 +298,20 @@ if (isset($_POST['submit'])) {
                     <div class="mx-auto w-full px-4 pt-2 pb-16 sm:px-6 sm:pt-8 sm:pb-24 lg:max-w-7xl lg:px-8">
                         <div
                             class="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-                            <a class="group">
-                                <div
-                                    class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                    <img src="brons/cobra.jpg" class="h-full w-full object-cover object-center">
-                                    <p class="gallery_textName">Cobra</p>
-                                    <p class="gallery_cmText">33 cm</p>
-                                </div>
-                            </a>
-
-                            <a class="group">
-                                <div
-                                    class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                    <img src="brons/jumeau.jpg" class="h-full w-full object-cover object-center">
-                                    <p class="gallery_textName">Jumeau</p>
-                                    <p class="gallery_cmText">60 cm</p>
-                                </div>
-                            </a>
-
-                            <a class="group">
-                                <div
-                                    class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                    <img src="brons/vanity.jpg" class="h-full w-full object-cover object-center">
-                                    <p class="gallery_textName">Vanity</p>
-                                    <p class="gallery_cmText">144 cm</p>
-                                </div>
-                            </a>
-
-                            <a class="group">
-                                <div
-                                    class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                    <img src="brons/volante.jpg" class="h-full w-full object-cover object-center">
-                                    <p class="gallery_textName">Volante</p>
-                                    <p class="gallery_cmText">97 cm</p>
-                                </div>
-                            </a>
-
-                            <a class="group">
-                                <div
-                                    class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                    <img src="brons/voltige.jpg" class="h-full w-full object-cover object-center">
-                                    <p class="gallery_textName">Voltige</p>
-                                    <p class="gallery_cmText">33 cm</p>
-                                </div>
-                            </a>
+                            <?php if (count($portfolioPhotos['brons']) === 0): ?>
+                                <p class="text-gray-700">Nog geen brons foto's toegevoegd.</p>
+                            <?php else: ?>
+                                <?php foreach ($portfolioPhotos['brons'] as $photo): ?>
+                                    <a class="group">
+                                        <div
+                                            class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                                            <img src="<?php echo htmlspecialchars($photo['foto']); ?>" class="h-full w-full object-cover object-center">
+                                            <p class="gallery_textName"><?php echo htmlspecialchars($photo['titel']); ?></p>
+                                            <p class="gallery_cmText"><?php echo htmlspecialchars($photo['afmeting_hoogte']); ?></p>
+                                        </div>
+                                    </a>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -395,60 +324,20 @@ if (isset($_POST['submit'])) {
                     <div class="mx-auto w-full px-4 pt-2 pb-16 sm:px-6 sm:pt-8 sm:pb-24 lg:max-w-7xl lg:px-8">
                         <div
                             class="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-                            <a class="group">
-                                <div
-                                    class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                    <img src="keramiek/assis.jpg" class="h-full w-full object-cover object-center">
-                                    <p class="gallery_textName">Assis</p>
-                                    <p class="gallery_cmText">40 cm</p>
-                                </div>
-                            </a>
-
-                            <a class="group">
-                                <div
-                                    class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                    <img src="keramiek/bovenOnder.jpg" class="h-full w-full object-cover object-center">
-                                    <p class="gallery_textName">Boven & onder</p>
-                                    <p class="gallery_cmText">24 cm</p>
-                                </div>
-                            </a>
-
-                            <a class="group">
-                                <div
-                                    class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                    <img src="keramiek/Overdenking.jpg"
-                                        class="h-full w-full object-cover object-center">
-                                    <p class="gallery_textName">Overdenking</p>
-                                    <p class="gallery_cmText">86 cm</p>
-                                </div>
-                            </a>
-
-                            <a class="group">
-                                <div
-                                    class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                    <img src="keramiek/tors.jpg" class="h-full w-full object-cover object-center">
-                                    <p class="gallery_textName">Tors</p>
-                                    <p class="gallery_cmText">62 cm</p>
-                                </div>
-                            </a>
-
-                            <a class="group">
-                                <div
-                                    class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                    <img src="keramiek/trio.jpeg" class="h-full w-full object-cover object-center">
-                                    <p class="gallery_textName">Trio</p>
-                                    <p class="gallery_cmText">35 cm</p>
-                                </div>
-                            </a>
-
-                            <a class="group">
-                                <div
-                                    class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-                                    <img src="keramiek/relief.jpg" class="h-full w-full object-cover object-center">
-                                    <p class="gallery_textName">Relief</p>
-                                    <p class="gallery_cmText">94 cm</p>
-                                </div>
-                            </a>
+                            <?php if (count($portfolioPhotos['keramiek']) === 0): ?>
+                                <p class="text-gray-700">Nog geen keramiek foto's toegevoegd.</p>
+                            <?php else: ?>
+                                <?php foreach ($portfolioPhotos['keramiek'] as $photo): ?>
+                                    <a class="group">
+                                        <div
+                                            class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                                            <img src="<?php echo htmlspecialchars($photo['foto']); ?>" class="h-full w-full object-cover object-center">
+                                            <p class="gallery_textName"><?php echo htmlspecialchars($photo['titel']); ?></p>
+                                            <p class="gallery_cmText"><?php echo htmlspecialchars($photo['afmeting_hoogte']); ?></p>
+                                        </div>
+                                    </a>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
