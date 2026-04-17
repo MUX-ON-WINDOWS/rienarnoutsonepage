@@ -4,7 +4,10 @@ const path = require('path');
 const root = __dirname;
 const dist = path.join(root, 'dist');
 
-// Ensure dist directory exists
+// Recreate dist directory for a clean build
+if (fs.existsSync(dist)) {
+  fs.rmSync(dist, { recursive: true, force: true });
+}
 fs.mkdirSync(dist, { recursive: true });
 
 // Helper to copy a file if it exists
@@ -22,11 +25,13 @@ function copyIfExists(source, target) {
 
 const copied = [];
 const files = [
-  // ['index.html', 'index.html'],
   ['index.php', 'index.php'],
   ['style.css', 'style.css'],
   ['script.js', 'script.js'],
   ['mobile.js', 'mobile.js'],
+  ['config.php', 'config.php'],
+  ['auth.php', 'auth.php'],
+  ['config.local.example.php', 'config.local.example.php'],
 ];
 
 const statuses = [];
@@ -60,12 +65,18 @@ function copyDirIfExists(sourceDir, targetDir) {
   return { copied: true, item: relSource };
 }
 
-const dirs = ['keramiek', 'brons', 'logo', 'img'];
+const dirs = ['keramiek', 'brons', 'logo', 'img', 'admin'];
 for (const dir of dirs) {
   const result = copyDirIfExists(path.join(root, dir), path.join(dist, dir));
   statuses.push({ src: dir, copied: result.copied, reason: result.reason || 'ok' });
   if (result.copied) copied.push(dir);
 }
+
+// Ensure uploads/portfolio exists for runtime uploads
+const uploadsPortfolioPath = path.join(dist, 'uploads', 'portfolio');
+fs.mkdirSync(uploadsPortfolioPath, { recursive: true });
+statuses.push({ src: 'uploads/portfolio', copied: true, reason: 'created' });
+copied.push('uploads/portfolio');
 
 fs.writeFileSync(
   path.join(dist, 'build.log'),

@@ -3,35 +3,42 @@ declare(strict_types=1);
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require_once __DIR__ . '/config.php';
+$configPath = __DIR__ . '/config.php';
+$hasDatabaseConfig = is_file($configPath);
+
+if ($hasDatabaseConfig) {
+    require_once $configPath;
+}
 
 $portfolioPhotos = [
     'brons' => [],
     'keramiek' => [],
 ];
 
-try {
-    $pdo = getPDO();
-    $portfolioStatement = $pdo->query('SELECT foto, category, titel, afmeting_hoogte FROM foto_data ORDER BY id DESC');
-    $rows = $portfolioStatement->fetchAll();
+if ($hasDatabaseConfig && function_exists('getPDO')) {
+    try {
+        $pdo = getPDO();
+        $portfolioStatement = $pdo->query('SELECT foto, category, titel, afmeting_hoogte FROM foto_data ORDER BY id DESC');
+        $rows = $portfolioStatement->fetchAll();
 
-    foreach ($rows as $row) {
-        $category = (string) ($row['category'] ?? '');
-        if (!isset($portfolioPhotos[$category])) {
-            continue;
+        foreach ($rows as $row) {
+            $category = (string) ($row['category'] ?? '');
+            if (!isset($portfolioPhotos[$category])) {
+                continue;
+            }
+
+            $portfolioPhotos[$category][] = [
+                'foto' => (string) ($row['foto'] ?? ''),
+                'titel' => (string) ($row['titel'] ?? ''),
+                'afmeting_hoogte' => (string) ($row['afmeting_hoogte'] ?? ''),
+            ];
         }
-
-        $portfolioPhotos[$category][] = [
-            'foto' => (string) ($row['foto'] ?? ''),
-            'titel' => (string) ($row['titel'] ?? ''),
-            'afmeting_hoogte' => (string) ($row['afmeting_hoogte'] ?? ''),
+    } catch (Throwable $exception) {
+        $portfolioPhotos = [
+            'brons' => [],
+            'keramiek' => [],
         ];
     }
-} catch (Throwable $exception) {
-    $portfolioPhotos = [
-        'brons' => [],
-        'keramiek' => [],
-    ];
 }
 
 if (isset($_POST['submit'])) {
